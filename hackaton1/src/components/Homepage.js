@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import WebcamList from './WebcamList';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Homepage extends React.Component {
       .get(url, { headers: { 'x-windy-key': apiKey } })
       .then((response) => response.data)
       .then((getData) => {
-        console.log(getData);
+        //console.log(getData);
       });
   };
 
@@ -27,6 +28,7 @@ class Homepage extends React.Component {
     return (
       <div className="Homepage">
         <h1>Homepage</h1>
+        <WebcamList />
       </div>
     );
   }

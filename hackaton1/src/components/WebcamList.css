@@ -1,0 +1,47 @@
+.WebcamList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.explore-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.total-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card-body {
+  margin: 0px;
+  padding: 10px;
+}
+
+.card {
+  width: 150px;
+  margin: 10px 5px;
+}
+
+.card-title {
+  margin: 0px;
+}
+
+.button {
+  height: 55px;
+  width: 130px;
+  font-size: 10px;
+  margin: 0px;
+  color: black;
+  background-color: white;
+  border: solid 1px white;
+}
