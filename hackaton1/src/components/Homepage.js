@@ -1,6 +1,7 @@
 import React from 'react';
 import Filters from './Filters';
 import axios from 'axios';
+import WebcamList from './WebcamList';
 
 class Homepage extends React.Component {
 	constructor(props) {
@@ -9,7 +10,9 @@ class Homepage extends React.Component {
 			getDataCategories: [],
 			getDataCountries: [],
 			selectedCountry: '',
-			selectedCategory: ''
+			selectedCategory: '',
+			getDataCodeCountriesAllInfo: [],
+			selectedId: ''
 		};
 	}
 
@@ -22,9 +25,11 @@ class Homepage extends React.Component {
 			.get(urlCountries, { headers: { 'x-windy-key': apiKey } })
 			.then((response) => response.data)
 			.then((getDataCountries) => {
+				console.log(getDataCountries);
 				let getCountries = getDataCountries.result.countries.map((country) => country.name);
-
+				let getCountriesAllInfo = getDataCountries.result.countries;
 				this.setState({ getDataCountries: getCountries });
+				this.state({ getDataCodeCountriesAllInfo: getCountriesAllInfo });
 			});
 
 		const pathCategories = `list?show=categories`;
@@ -45,8 +50,11 @@ class Homepage extends React.Component {
 		event.preventDefault();
 		let countryName = event.target.value;
 		let countryData = this.state.getDataCountries.filter((element) => element === countryName);
+		let countryId = this.state.getDataCodeCountriesAllInfo.filter((element) => element === countryName);
+
 		this.setState({
-			selectedCountry: countryData
+			selectedCountry: countryData,
+			selectedId: countryId.id
 		});
 	};
 
@@ -57,6 +65,12 @@ class Homepage extends React.Component {
 		this.setState({
 			selectedCategory: categoryData
 		});
+	};
+
+	handleCountryId = (id) => {
+		let selectedCountry = this.state.selectedCountry;
+		let getDataCountries = this.getDataCountries;
+		getDataCountries.map(() => {});
 	};
 
 	render() {
@@ -70,6 +84,11 @@ class Homepage extends React.Component {
 					selectedCategory={this.state.selectedCategory}
 					handleChangeCategory={this.handleChangeCategory}
 					listCategories={this.state.getDataCategories}
+				/>
+				<WebcamList
+					selectedCategory={this.state.selectedCategory}
+					selectedCountry={this.state.selectedCountry}
+					selectedId={this.state.selectedId}
 				/>
 			</div>
 		);
