@@ -2,9 +2,10 @@ import React from 'react';
 import './Footer.css';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
-import twitter from './logos/twitter.png';
-import facebook from './logos/facebook.png';
-import insta from './logos/insta.png';
+import twitter from '../assets/twitter.png';
+import facebook from '../assets/facebook.png';
+import insta from '../assets/insta.png';
+
 const Footer = () => (
   <Row lg={1}>
     <Col sm={12} lg={12}>

@@ -4,12 +4,12 @@ import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 
 function App() {
-	return (
-		<div className="App">
-			<Homepage />
-			{/* <Footer /> */}
-		</div>
-	);
+  return (
+    <div className="App">
+      <Homepage />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
