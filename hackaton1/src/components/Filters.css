@@ -1,12 +1,27 @@
-select {
-  width: 10px;
-}
-
 .Filters {
-  width: 400px;
+	width: 275px;
+	flex-direction: row;
 }
 
 .form-div {
-  width: 300px;
-  margin: auto;
+	width: 550px;
+	margin: auto;
+	display: flex;
+}
+
+.countryTitle {
+	width: 550px;
+	text-align: center;
+	border-left: 20px;
+}
+
+@media screen and (max-width: 650px) {
+	.Filters {
+		width: 150px;
+		font-size: 12px;
+	}
+	.form-div {
+		width: 300px;
+		font-size: 12px;
+	}
 }
