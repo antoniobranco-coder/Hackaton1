@@ -5,17 +5,18 @@ import './Homepage.css';
 import WebcamList from './WebcamList';
 
 class Homepage extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			getDataCategories: [],
-			getDataCountries: [],
-			selectedCountry: '',
-			selectedCategory: '',
-			getDataCodeCountriesAllInfo: [],
-			selectedId: ''
-		};
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      isData: false,
+      getDataCategories: [],
+      getDataCountries: [],
+      selectedCountry: '',
+      selectedCategory: '',
+      getDataCodeCountriesAllInfo: [],
+      selectedId: '',
+    };
+  }
 
 	componentDidMount = () => {
 		const pathCountries = `list?show=countries`;
@@ -52,20 +53,24 @@ class Homepage extends React.Component {
 		let countryData = this.state.getDataCountries.filter((element) => element === countryName);
 		let countryId = this.state.getDataCodeCountriesAllInfo.filter((element) => element.name === countryName);
 
-		this.setState({
-			selectedCountry: countryData,
-			selectedId: countryId[0].id
-		});
-	};
+    this.setState({
+      isData: true,
+      selectedCountry: countryData,
+      selectedId: countryId[0].id,
+    });
+  };
 
-	handleChangeCategory = (event) => {
-		event.preventDefault();
-		let categoryName = event.target.value;
-		let categoryData = this.state.getDataCategories.filter((element) => element === categoryName);
-		this.setState({
-			selectedCategory: categoryData
-		});
-	};
+  handleChangeCategory = (event) => {
+    event.preventDefault();
+    let categoryName = event.target.value;
+    let categoryData = this.state.getDataCategories.filter(
+      (element) => element === categoryName,
+    );
+    this.setState({
+      isData: true,
+      selectedCategory: categoryData,
+    });
+  };
 
 	handleCountryId = (id) => {
 		let getDataCountries = this.getDataCountries;
@@ -73,6 +78,7 @@ class Homepage extends React.Component {
 	};
 
 	render() {
+    const { isData } = this.state;
 		return (
 			<div className="Homepage">
 				<div>

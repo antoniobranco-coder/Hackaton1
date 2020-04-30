@@ -1,3 +1,4 @@
+
 .Filters {
 	width: 275px;
 	flex-direction: row;
@@ -7,6 +8,13 @@
 	width: 550px;
 	margin: auto;
 	display: flex;
+}
+
+.select-label {
+  font-family: 'Covered By Your Grace' !important;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1e1b5e;
 }
 
 .countryTitle {

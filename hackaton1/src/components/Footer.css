@@ -1,46 +1,61 @@
 .containerFooter {
   display: flex;
-  color: white;
-  background-color: #d65780;
-  height: 200px;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  color: #4ea2bb;
+  background-color: #07052b;
+  height: 100px;
   border-top: 5px solid #cecece;
   border-bottom: 5px solid #cecece;
+  line-height: 18px;
+  font-size: 13px;
+  padding: 10px 20px;
 }
-a:link {
-  color: whitesmoke;
+
+.containerFooter a:link {
+  width: 130px;
+  color: #498fa4 !important;
 }
-a:visited {
-  color: whitesmoke;
+
+.containerFooter a:visited {
+  color: #498fa4 !important;
 }
-.containerFooter ul {
+
+.containerFooter a:hover {
+  color: white !important;
+}
+
+.containerFooter {
   list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 .copyRight {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  align-content: center;
 }
-.footerList3 {
-  display: flex;
-  justify-content: space-around;
+
+.footerList {
+  margin: 0px auto;
 }
-.fb {
-  height: 45px;
-  width: 45px;
+
+.icon {
+  width: 18px;
+  margin: 0px 3px;
 }
-.tw {
-  height: 25px;
-  width: 25px;
+.copy {
+  margin-left: 10px;
 }
-@media screen and (max-width: 961px) {
+
+@media (max-width: 900px) {
   .containerFooter {
     display: flex;
     align-items: center;
   }
-  .containerFooter ul {
-    margin: 0;
+  .footerList {
+    width: 250px;
+    text-align: center;
   }
 }
