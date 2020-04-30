@@ -73,7 +73,7 @@ class WebcamList extends React.Component {
         {gotData && (
           <div>
             <div className="explore-title">
-              Exploring:{' '}
+              Exploring:
               <span className="text">
                 {countryNameSelected} {category}
               </span>

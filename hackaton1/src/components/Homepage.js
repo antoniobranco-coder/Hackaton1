@@ -108,22 +108,7 @@ class Homepage extends React.Component {
           <div>
             <img
               className="photo"
-              src="https://imgur.com/Ve7LdMa.png"
-              alt="photo"
-            />
-            <img
-              className="photo"
               src="https://imgur.com/wOn2YH9.png"
-              alt="photo"
-            />
-            <img
-              className="photo"
-              src="https://imgur.com/2E1CP3O.png"
-              alt="photo"
-            />
-            <img
-              className="photo"
-              src="https://imgur.com/giLVnqI.png"
               alt="photo"
             />
           </div>

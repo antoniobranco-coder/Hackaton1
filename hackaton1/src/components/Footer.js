@@ -1,40 +1,46 @@
 import React from 'react';
 import './Footer.css';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import twitter from '../assets/twitter.png';
-import facebook from '../assets/facebook.png';
-import insta from '../assets/insta.png';
+import linkedin from '../assets/images/linkedin.png';
+import facebook from '../assets/images/facebook.png';
+import insta from '../assets/images/instagram.png';
 
 const Footer = () => (
-  <Row lg={1}>
-    <Col sm={12} lg={12}>
-      <footer className="containerFooter">
-        <ul className="footerList">
-          Created by
-          <a href="https://github.com/MargSousa">Margarida Sousa</a>
-          <a href="https://www.https://github.com/Numissa11">Aline Sinclaire</a>
-          <a href="https://github.com/antoniobranco-coder">Antonio Branco </a>
-        </ul>
-        <ul className="footerList3">
-          <img
-            style={{
-              marginLeft: '8px',
-              marginTop: '15px',
-              marginBottom: '13px',
-            }}
-            className="tw"
-            src={twitter}
-            alt="twitter logo"
-          />
-          <img className="fb" src={facebook} alt="facebook logo" />
-          <img className="fb" src={insta} alt="facebook instagramme" />
-        </ul>
-        <ul className="copyRight">
-          <p> &copy; Copyright 2020 </p>
-        </ul>
-      </footer>
-    </Col>
-  </Row>
+  <footer className="containerFooter">
+    <div className="footerList">
+      Created by
+      <a href="https://github.com/Numissa11" target="blank_">
+        <span> Aline Sinclaire</span>
+      </a>
+      <a href="https://github.com/antoniobranco-coder" target="blank_">
+        <span>, Antonio Branco</span>
+      </a>
+      <a href="https://github.com/MargSousa" target="blank_">
+        <span> and Margarida Sousa</span>
+      </a>
+    </div>
+    <div className="copyRight">
+      <span>
+        <a
+          href="https://www.facebook.com/wildcodeschoolportugal/"
+          target="blank_"
+        >
+          <img className="icon" src={facebook} alt="icon" />
+        </a>
+        <a
+          href="https://www.instagram.com/wildcodeschoollisbon/"
+          target="blank_"
+        >
+          <img className="icon" src={insta} alt="icon" />
+        </a>
+        <a
+          href="https://www.linkedin.com/school/wild-codes-chool/"
+          target="blank_"
+        >
+          <img className="icon" src={linkedin} alt="icon" />
+        </a>
+      </span>
+      <span className="copy">&copy; Copyright 2020</span>
+    </div>
+  </footer>
 );
 export default Footer;
