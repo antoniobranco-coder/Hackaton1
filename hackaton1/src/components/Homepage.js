@@ -8,6 +8,7 @@ class Homepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isData: false,
       getDataCategories: [],
       getDataCountries: [],
       selectedCountry: '',
@@ -61,6 +62,7 @@ class Homepage extends React.Component {
     );
 
     this.setState({
+      isData: true,
       selectedCountry: countryData,
       selectedId: countryId[0].id,
     });
@@ -73,6 +75,7 @@ class Homepage extends React.Component {
       (element) => element === categoryName,
     );
     this.setState({
+      isData: true,
       selectedCategory: categoryData,
     });
   };
@@ -83,6 +86,8 @@ class Homepage extends React.Component {
   };
 
   render() {
+    const { isData } = this.state;
+
     return (
       <div className="Homepage">
         <div>
@@ -107,7 +112,7 @@ class Homepage extends React.Component {
           </div>
           <div>
             <img
-              className="photo"
+              className={isData ? 'data-photo' : 'photo'}
               src="https://imgur.com/wOn2YH9.png"
               alt="photo"
             />

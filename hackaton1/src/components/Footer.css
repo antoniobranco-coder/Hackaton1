@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
-  background-color: #d65780;
+  color: #4ea2bb;
+  background-color: #07052b;
   height: 100px;
   border-top: 5px solid #cecece;
   border-bottom: 5px solid #cecece;
@@ -12,13 +12,17 @@
   padding: 10px 20px;
 }
 
-a:link {
+.containerFooter a:link {
   width: 130px;
-  color: whitesmoke;
+  color: #498fa4 !important;
 }
 
-a:visited {
-  color: whitesmoke;
+.containerFooter a:visited {
+  color: #498fa4 !important;
+}
+
+.containerFooter a:hover {
+  color: white !important;
 }
 
 .containerFooter {
@@ -30,6 +34,7 @@ a:visited {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  align-content: center;
 }
 
 .footerList {

@@ -19,7 +19,8 @@ const Footer = () => (
       </a>
     </div>
     <div className="copyRight">
-      <span>
+      <span> Wild Code School 2020</span>
+      <span className="copy">
         <a
           href="https://www.facebook.com/wildcodeschoolportugal/"
           target="blank_"
@@ -39,7 +40,6 @@ const Footer = () => (
           <img className="icon" src={linkedin} alt="icon" />
         </a>
       </span>
-      <span className="copy">&copy; Copyright 2020</span>
     </div>
   </footer>
 );

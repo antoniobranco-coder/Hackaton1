@@ -78,7 +78,9 @@ class WebcamList extends React.Component {
                 {countryNameSelected} {category}
               </span>
             </div>
-            <div className="total-title">Total webcams: {totalCams}</div>
+            <div className="total-title">
+              Total webcams: <span className="text">{totalCams}</span>
+            </div>
 
             <div className="list">
               {getWebData.map((element, index) => (

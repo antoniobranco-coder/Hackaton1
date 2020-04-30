@@ -1,4 +1,5 @@
 import React from 'react';
+import './Filters.css';
 
 function Filters(props) {
   return (
