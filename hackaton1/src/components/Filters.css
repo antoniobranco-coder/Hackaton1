@@ -1,0 +1,30 @@
+.Filters {
+  width: 275px;
+  flex-direction: row;
+}
+
+.form-div {
+  width: 550px;
+  margin: auto;
+  display: flex;
+}
+
+.countryTitle {
+  font-family: 'Covered By Your Grace' !important;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1e1b5e;
+  text-align: center;
+  margin: auto;
+}
+
+@media screen and (max-width: 650px) {
+  .Filters {
+    width: 150px;
+    font-size: 12px;
+  }
+  .form-div {
+    width: 300px;
+    font-size: 12px;
+  }
+}
