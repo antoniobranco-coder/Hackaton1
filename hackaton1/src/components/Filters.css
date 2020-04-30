@@ -1,19 +1,35 @@
-/* select {
-  width: 10px;
-}
 
 .Filters {
-  width: 400px;
+	width: 275px;
+	flex-direction: row;
 }
 
 .form-div {
-  width: 300px;
-  margin: auto;
-} */
+	width: 550px;
+	margin: auto;
+	display: flex;
+}
 
 .select-label {
   font-family: 'Covered By Your Grace' !important;
   font-size: 24px;
   font-weight: 500;
   color: #1e1b5e;
+}
+
+.countryTitle {
+	width: 550px;
+	text-align: center;
+	border-left: 20px;
+}
+
+@media screen and (max-width: 650px) {
+	.Filters {
+		width: 150px;
+		font-size: 12px;
+	}
+	.form-div {
+		width: 300px;
+		font-size: 12px;
+	}
 }
