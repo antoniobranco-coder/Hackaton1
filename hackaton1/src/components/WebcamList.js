@@ -4,81 +4,105 @@ import './WebcamList.css';
 import { Button, Card } from 'react-bootstrap';
 
 class WebcamList extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			category: '',
-			countryCodeSelected: '',
-			countryNameSelected: '',
-			totalCams: 0,
-			getWebData: []
-		};
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      gotData: false,
+      category: '',
+      countryCodeSelected: '',
+      countryNameSelected: '',
+      totalCams: 0,
+      getWebData: [],
+    };
+  }
 
-	componentDidMount = () => {
-		const { selectedId, selectedCountry, selectedCategory } = this.props;
-		const apiKey = `ILGosuG9SzGiLAQHiZtnbF91oKhuVi0W`;
-		const urlCountry = `https://api.windy.com/api/webcams/v2/list/limit=50,0/country=${selectedId}?show=webcams:category,image,location,player,url;`;
-		const urlCategory = `https://api.windy.com/api/webcams/v2/list/limit=50,0/category=${selectedCategory}?show=webcams:category,image,location,player,url;`;
-		const urlBoth = `https://api.windy.com/api/webcams/v2/list/limit=50,0/country=${selectedId}/category=${selectedCategory}/?show=webcams:category,image,location,player,url;`;
-		let finalUrl = ``;
+  renderNewData = () => {
+    const { selectedId, selectedCountry, selectedCategory } = this.props;
+    const apiKey = `ILGosuG9SzGiLAQHiZtnbF91oKhuVi0W`;
+    let modifiers = ``;
 
-		if (selectedId !== '' && selectedCategory !== '') {
-			finalUrl = urlBoth;
-		} else if (countryCode !== '') {
-			finalUrl = urlCountry;
-		} else {
-			finalUrl = urlCategory;
-		}
+    let smallCategory = selectedCategory.toString().toLowerCase();
 
-		axios
-			.get(finalUrl, { headers: { 'x-windy-key': apiKey } })
-			.then((response) => response.data)
-			.then((getData) => {
-				console.log('PT', getData.result);
+    if (selectedId !== '' && selectedCategory !== '') {
+      modifiers = `country=${selectedId}/category=${smallCategory}`;
+    } else if (selectedId !== '') {
+      modifiers = `country=${selectedId}`;
+    } else {
+      modifiers = `category=${smallCategory}`;
+    }
 
-				this.setState({
-					getWebData: getData.result.webcams,
-					totalCams: getData.result.total,
-					category: selectedCategory,
-					countryCodeSelected: selectedId,
-					countryNameSelected: selectedCountry
-				});
-			});
-	};
+    const url = `https://api.windy.com/api/webcams/v2/list/limit=50,0/${modifiers}?show=webcams:category,image,location,player,url;`;
 
-	render() {
-		const { countryNameSelected, getWebData, totalCams, category } = this.state;
+    axios
+      .get(url, { headers: { 'x-windy-key': apiKey } })
+      .then((response) => response.data)
+      .then((getData) => {
+        this.setState({
+          gotData: true,
+          getWebData: getData.result.webcams,
+          totalCams: getData.result.total,
+          category: selectedCategory,
+          countryCodeSelected: selectedId,
+          countryNameSelected: selectedCountry,
+        });
+      });
+  };
 
-		console.log(getWebData);
+  componentDidUpdate = (prevProps) => {
+    if (
+      prevProps.selectedId !== this.props.selectedId ||
+      prevProps.selectedCategory !== this.props.selectedCategory
+    ) {
+      this.renderNewData();
+    }
+  };
 
-		return (
-			<div className="WebcamList">
-				<div className="explore-title">
-					~ Exploring: {countryNameSelected} {category}
-				</div>
-				<div className="total-title">~ Total webcams: {totalCams}</div>
-				<div>FILTERS HERE</div>
-				<div className="list">
-					{getWebData.map((element, index) => (
-						<Card className="card" key={index}>
-							<Card.Img variant="top" src={element.image.current.preview} />
-							<Card.Body className="card-body">
-								<Card.Title className="card-title" />
-								<Button className="button" size="sm" href={element.url.current.mobile} target="blank_">
-									{element.title}
-								</Button>
-							</Card.Body>
-						</Card>
-					))}
-				</div>
-			</div>
-		);
-	}
+  componentDidMount = () => {};
+
+  render() {
+    const {
+      countryNameSelected,
+      getWebData,
+      totalCams,
+      category,
+      gotData,
+    } = this.state;
+
+    return (
+      <div className="WebcamList">
+        {gotData && (
+          <div>
+            <div className="explore-title">
+              Exploring:{' '}
+              <span className="text">
+                {countryNameSelected} {category}
+              </span>
+            </div>
+            <div className="total-title">Total webcams: {totalCams}</div>
+
+            <div className="list">
+              {getWebData.map((element, index) => (
+                <Card className="card" key={index}>
+                  <Card.Img variant="top" src={element.image.current.preview} />
+                  <Card.Body className="card-body">
+                    <Card.Title className="card-title" />
+                    <Button
+                      className="button"
+                      size="sm"
+                      href={element.url.current.mobile}
+                      target="blank_"
+                    >
+                      {element.title}
+                    </Button>
+                  </Card.Body>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
 export default WebcamList;
-
-// desktop: "https://www.windy.com/webcams/1190446271"
-// mobile: "https://www.windy.com/webcams/1190446271"
-// mobile: "https://www.windy.com/webcams/1190446271"

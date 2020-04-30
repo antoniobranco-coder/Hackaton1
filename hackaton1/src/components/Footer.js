@@ -11,6 +11,7 @@ const Footer = () => (
     <Col sm={12} lg={12}>
       <footer className="containerFooter">
         <ul className="footerList">
+          Created by
           <a href="https://github.com/MargSousa">Margarida Sousa</a>
           <a href="https://www.https://github.com/Numissa11">Aline Sinclaire</a>
           <a href="https://github.com/antoniobranco-coder">Antonio Branco </a>
